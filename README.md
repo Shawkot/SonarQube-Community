@@ -51,4 +51,14 @@ But, for convenience, I added all the argument values in the 'sonar-scanner.prop
     sonar.token=sqp_a3e450c41f7ea9cxbf68ac0950912b2a3c52807d
     sonar.sources=.
 
-### Step 7:
+### Step 7: Update the path variable
+To run the sonar-scanner, you need to specify the path for this application. The sonar client application folder (which you downloaded and unzipped) consists of a binary folder "bin". You need to add the path of this binary folder to the environment path variable. To do this,
+- open /etc/environment file with a text editor
+- add the file path at the end.
+- For example, if the path of the bin folder is something like this '/home/user1/sonar-scanner/bin', put a colon (:) at the end and write the file path. It will look like this:
+  .... :/home/user1/sonar-scanner/bin. You can verify the path by running the command _echo $PATH_
+### Step 8: Running a scan
+Now, you are ready to run a scan. To run the scan,
+- go to the project folder that you want to scan
+- and run _sonar-scanner_ command
+- It will take some time and after a while, you can see the result from the web interface.
