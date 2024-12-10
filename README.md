@@ -25,14 +25,30 @@ Now, to scan a local repo, you need to create a project first and you can do tha
 - creating a project key
 - generating a token for authentication
   
-For detailed instructions follow the link https://docs.sonarsource.com/sonarqube-server/latest/try-out-sonarqube/ and finish creating a project on sonarqube.  
-When you're done creating a project, you will have a project key and a token. You will also get a get command for running the scan. Here is the command:  
+For detailed instructions follow the link https://docs.sonarsource.com/sonarqube-server/latest/try-out-sonarqube/ and finish creating a project on sonarqube. When you're done creating a project, you will have a project key and a token. You will also get a get command for running the scan. Here is the command:  
 #### 
     sonar-scanner \
     -Dsonar.projectKey=Test-sonar \
-	  -Dsonar.sources=. \
-	  -Dsonar.host.url=http://localhost:9000 \
-	  -Dsonar.token=sqp_de7b24606a3be2ceed63c9012cbdf849689415a0
+    -Dsonar.sources=. \
+    -Dsonar.host.url=http://localhost:9000 \
+    -Dsonar.token=sqp_de7b24606a3be2ceed63c9012cbdf849689415a0
 Use your own token and project key.
 
 ## Setting up the sonar-scanner CLI:
+So far, we have configured the sonarqube server and created all the required components like token and project key to talk with the server. Now, we need a client software which can run the scan and can communicate to the server. Then the server will show the result on the web UI. We will use the _sonar-scanner_ CLI application. Follow the steps below to setup the client application.
+### Step 5: Download the sonar-scanner CLI application
+Download the client application from the following link:  
+https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner/  
+Download the appropriate application based on your system. Then, unzip the application.
+### Step 6: Setting up the client
+In the previous step, you unzip the application and you will find a _conf_ folder, which consists of a file called "sonar-scanner.properties". In this file, you can configure all the required
+arguments to run the client application. For example, the host URL, token for authentication, and so on. You can also supply these applications when running the command 'sonar-scanner' as shown before. On the other hand, you can also create environment variables for those values like tokens and so on. Follow the link below for detailed instructions:  
+https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner/  
+But, for convenience, I added all the argument values in the 'sonar-scanner.properties' file like this:  
+####
+    sonar.host.url=http://localhost:9000
+    sonar.projectKey=Test-sonar
+    sonar.token=sqp_a3e450c41f7ea9cxbf68ac0950912b2a3c52807d
+    sonar.sources=.
+
+### Step 7:
