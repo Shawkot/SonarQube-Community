@@ -14,5 +14,10 @@ Find the official docker image here: https://hub.docker.com/_/sonarqube
 ### Step 2: Start the container
 After downloading the image, now we can run a container using the image. We will map port 9000 of the local machine to the port 9000 of the container. Use the following command to run the container:
 #### _docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest_
-### Step 3:
+### Step 3: Log in to the web UI
+At this point, the sonarqube server is running in a container. The application provides a UI to manage all the settings ranging from administration to real scanning. It also provides a nice overview of a scan. To log in to the web interface, 
+- visit HTTP://localhost:9000 and the default "username/password" is "admin/admin"
+- Then change the default password immediately.
 ### Step 4:
+
+## Setting up the sonar-scanner CLI:
